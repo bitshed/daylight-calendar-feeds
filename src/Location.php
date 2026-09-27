@@ -36,7 +36,7 @@ final readonly class Location
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<mixed> $data
      */
     public static function fromArray(array $data): self
     {
@@ -62,7 +62,7 @@ final readonly class Location
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<mixed> $data
      */
     private static function string(array $data, string $key): string
     {
@@ -76,7 +76,7 @@ final readonly class Location
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<mixed> $data
      */
     private static function float(array $data, string $key): float
     {

@@ -29,6 +29,11 @@
     },
     "scripts": {
         "build": "php bin/build",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "php -S localhost:8000 -t dist"
+        ],
         "test": "pest",
         "analyse": "phpstan analyse",
         "lint": "phpcs",

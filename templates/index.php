@@ -90,7 +90,7 @@ $description = 'Free calendar feeds that add one all-day event per day with sunr
             </div>
             <div class="feeds">
 <?php foreach ($feeds as $feed) : ?>
-<?php $today = $feed['today']; ?>
+    <?php $today = $feed['today']; ?>
                 <article class="feed">
                     <div class="top">
                         <h3><?= $e($feed['location']->name) ?></h3>

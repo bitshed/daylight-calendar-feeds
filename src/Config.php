@@ -58,12 +58,7 @@ final readonly class Config
             issuesUrl: self::string($site, 'issues_url'),
             pastDays: self::int($feed, 'past_days'),
             futureDays: self::int($feed, 'future_days'),
-            locations: array_map(
-                static fn (mixed $location): Location => Location::fromArray(
-                    is_array($location) ? $location : throw new InvalidArgumentException('Each location must be an array.'),
-                ),
-                array_values(self::section($data, 'locations')),
-            ),
+            locations: self::locations(self::section($data, 'locations')),
         );
     }
 
@@ -75,6 +70,20 @@ final readonly class Config
     public static function feedPath(Location $location): string
     {
         return 'feeds/' . $location->slug . '.ics';
+    }
+
+    /**
+     * @param array<mixed> $entries
+     * @return list<Location>
+     */
+    private static function locations(array $entries): array
+    {
+        return array_map(
+            static fn (mixed $entry): Location => is_array($entry)
+                ? Location::fromArray($entry)
+                : throw new InvalidArgumentException('Each location must be an array.'),
+            array_values($entries),
+        );
     }
 
     /**

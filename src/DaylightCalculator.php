@@ -106,8 +106,6 @@ final class DaylightCalculator
             }
         }
 
-        assert($shortest !== null);
-
         return $this->shortestDays[$key] = $shortest;
     }
 
