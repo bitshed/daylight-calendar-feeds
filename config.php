@@ -17,7 +17,7 @@ declare(strict_types=1);
 return [
     'site' => [
         'title' => 'Daylight Calendar Feeds',
-        'base_url' => 'https://daylight.bitshed.dev',
+        'base_url' => 'https://daylight-calendar-feeds.bitshed.dev',
         'repository_url' => 'https://github.com/bitshed/daylight-calendar-feeds',
         'issues_url' => 'https://github.com/bitshed/daylight-calendar-feeds/issues',
     ],

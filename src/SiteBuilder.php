@@ -60,11 +60,6 @@ final readonly class SiteBuilder
             $written[] = $asset;
         }
 
-        // GitHub Pages: serve files as-is, and on the configured custom domain.
-        $this->write($outputDirectory, '.nojekyll', '');
-        $this->write($outputDirectory, 'CNAME', (string) parse_url($this->config->baseUrl, PHP_URL_HOST) . "\n");
-        array_push($written, '.nojekyll', 'CNAME');
-
         return $written;
     }
 
