@@ -148,7 +148,7 @@ $description = 'Free calendar feeds that add one all-day event per day with sunr
                 <p class="lbl">Subscribing</p>
                 <span class="lbl">Refreshed daily</span>
             </div>
-            <h2>Add it once, and it stays current</h2>
+            <h2>Subscribable Calendars</h2>
             <div class="prose">
                 <p>The feeds are rebuilt every day and always cover the past week and the year ahead. Subscribe rather than importing the file, so your calendar picks up each rebuild on its own.</p>
             </div>
@@ -192,7 +192,7 @@ $description = 'Free calendar feeds that add one all-day event per day with sunr
             <a href="https://dor.ky" rel="me noopener">dor.ky</a>
             <a href="<?= $e($config->repositoryUrl) ?>" rel="noopener">GitHub</a>
         </div>
-        <span>Built <?= $e($generatedAt->format('j M Y, H:i')) ?> UTC</span>
+        <span>Last Built <?= $e($generatedAt->format('j M Y, H:i')) ?> UTC</span>
     </footer>
 </div>
 <script>
