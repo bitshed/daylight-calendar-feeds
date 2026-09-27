@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Bitshed\Daylight\Config;
+use Bitshed\Daylight\DaylightCalculator;
+use Bitshed\Daylight\FeedBuilder;
+use Bitshed\Daylight\SiteBuilder;
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+$root = dirname(__DIR__);
+$output = $argv[1] ?? $root . '/dist';
+
+$config = Config::load($root . '/config.php');
+$builder = new SiteBuilder(
+    config: $config,
+    feeds: new FeedBuilder($config, new DaylightCalculator()),
+    templateDirectory: $root . '/templates',
+    assetDirectory: $root . '/assets',
+);
+
+$written = $builder->build($output, new DateTimeImmutable('now', new DateTimeZone('UTC')));
+
+fwrite(STDOUT, sprintf("Built %d files into %s\n", count($written), $output));
+
+foreach ($written as $path) {
+    fwrite(STDOUT, '  ' . $path . "\n");
+}

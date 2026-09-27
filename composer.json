@@ -1,0 +1,47 @@
+{
+    "name": "bitshed/daylight-calendar-feeds",
+    "description": "Builds subscribable iCalendar feeds of daily sunrise, sunset and daylight gained since the winter solstice.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Scott Robinson",
+            "homepage": "https://dor.ky"
+        }
+    ],
+    "require": {
+        "php": "^8.3"
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.0",
+        "phpstan/phpstan": "^2.0",
+        "squizlabs/php_codesniffer": "^3.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bitshed\\Daylight\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bitshed\\Daylight\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "build": "php bin/build",
+        "test": "pest",
+        "analyse": "phpstan analyse",
+        "lint": "phpcs",
+        "check": [
+            "@lint",
+            "@analyse",
+            "@test"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
