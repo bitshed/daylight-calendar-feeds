@@ -86,4 +86,4 @@ without activity. If the feeds stop updating, re-enable the workflow from the
 
 ## Licence
 
-[MIT](LICENSE)
+[BSD 3-Clause](LICENSE)
