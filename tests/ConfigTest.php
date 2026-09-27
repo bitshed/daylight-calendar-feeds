@@ -48,6 +48,13 @@ it('rejects duplicate slugs', function (): void {
     Config::fromArray(configData([locationData(), locationData()]));
 })->throws(InvalidArgumentException::class, 'Duplicate location slugs: london.');
 
+it('rejects a base URL without a scheme and host', function (string $baseUrl): void {
+    $data = configData([locationData()]);
+    $data['site']['base_url'] = $baseUrl;
+
+    expect(fn () => Config::fromArray($data))->toThrow(InvalidArgumentException::class, 'absolute http(s) URL');
+})->with(['example.com', '/feeds', 'ftp://example.com']);
+
 it('rejects invalid locations', function (array $overrides, string $message): void {
     expect(fn () => Config::fromArray(configData([locationData($overrides)])))
         ->toThrow(InvalidArgumentException::class, $message);

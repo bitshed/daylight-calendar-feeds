@@ -20,6 +20,14 @@ final readonly class Config
         public int $futureDays,
         public array $locations,
     ) {
+        // The host doubles as the UID domain in every feed, so it must be real.
+        if (
+            !in_array(parse_url($baseUrl, PHP_URL_SCHEME), ['http', 'https'], true)
+            || !is_string(parse_url($baseUrl, PHP_URL_HOST))
+        ) {
+            throw new InvalidArgumentException(sprintf('base_url "%s" must be an absolute http(s) URL.', $baseUrl));
+        }
+
         if ($pastDays < 0 || $futureDays < 0) {
             throw new InvalidArgumentException('Feed past_days and future_days cannot be negative.');
         }
