@@ -69,5 +69,13 @@ return [
             'longitude' => -2.9916,
             'timezone' => 'Europe/London',
         ],
+        [
+            'slug' => 'newquay',
+            'name' => 'Newquay',
+            'region' => 'Cornwall, England, United Kingdom',
+            'latitude' => 50.4155,
+            'longitude' => -5.0737,
+            'timezone' => 'Europe/London',
+        ],
     ],
 ];
